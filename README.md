@@ -1,6 +1,6 @@
-# The Smith - Metallurgical Guide & Resources
+# Smith - Metallurgical Guide & Resources
 
-A comprehensive Electron application that teaches metallurgy and bladesmithing from the ground up. From finding ore in the mountains to forging Damascus steel, The Smith provides both primitive techniques for rebuilding society and modern resources for today's craftspeople.
+A comprehensive Electron application that teaches metallurgy and bladesmithing from the ground up. From finding ore in the mountains to forging Damascus steel, Smith provides both primitive techniques for rebuilding society and modern resources for today's craftspeople.
 
 ## Features
 

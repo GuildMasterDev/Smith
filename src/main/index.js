@@ -36,10 +36,10 @@ const createWindow = () => {
   // Build menu
   const menuTemplate = [
     {
-      label: 'The Smith',
+      label: 'Smith',
       submenu: [
         {
-          label: 'About The Smith',
+          label: 'About Smith',
           click: () => {
             mainWindow.webContents.send('navigate', 'about');
           }

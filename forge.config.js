@@ -4,9 +4,9 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
-    name: 'The Smith',
+    name: 'Smith',
     icon: './build/icon',
-    appBundleId: 'com.guildmaster.smith',
+    appBundleId: 'me.davidcanhelp.smith',
     appCategoryType: 'public.app-category.education',
   },
   rebuildConfig: {},

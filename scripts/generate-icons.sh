@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Icon generation script using ImageMagick
-# Creates all required icons for The Smith app
+# Creates all required icons for Smith app
 
-echo "Generating icons for The Smith app..."
+echo "Generating icons for Smith app..."
 
 # Create icons directory
 mkdir -p src/renderer/assets/icons
