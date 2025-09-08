@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Smith - Metallurgical Guide & Resources</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/icons/app-icon.png" alt="The Smith" class="app-icon">
+                <h1>The Smith</h1>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-section">
+                    <h3>Guide</h3>
+                    <ul id="guide-chapters" class="chapter-list">
+                        <!-- Chapters will be populated by JavaScript -->
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Resources</h3>
+                    <ul id="resource-categories" class="resource-list">
+                        <!-- Categories will be populated by JavaScript -->
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="search-btn" class="icon-btn" title="Search">
+                    <img src="assets/icons/search.png" alt="Search">
+                </button>
+                <button id="bookmark-btn" class="icon-btn" title="Bookmarks">
+                    <img src="assets/icons/bookmark.png" alt="Bookmarks">
+                </button>
+                <button id="home-btn" class="icon-btn" title="Home">
+                    <img src="assets/icons/home.png" alt="Home">
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content">
+            <!-- Home/Welcome Screen -->
+            <div id="home-view" class="content-view active">
+                <div class="welcome-container">
+                    <h1>Welcome to The Smith</h1>
+                    <p class="tagline">Your Complete Guide to Metallurgy and Bladesmithing</p>
+                    
+                    <div class="intro-text">
+                        <p>From finding ore in the Rocky Mountains to forging Damascus steel, this comprehensive guide teaches you the ancient art of metalworking. Whether you're preparing for societal collapse or pursuing a timeless craft, The Smith provides both primitive techniques and modern resources.</p>
+                    </div>
+                    
+                    <div class="quick-start">
+                        <h2>Quick Start</h2>
+                        <div class="card-grid">
+                            <div class="card" data-navigate="guide">
+                                <img src="assets/icons/chapter-ore.png" alt="Guide">
+                                <h3>Metallurgical Guide</h3>
+                                <p>Learn from the ground up - literally. Start with finding ore and progress to advanced techniques.</p>
+                            </div>
+                            <div class="card" data-navigate="directory">
+                                <img src="assets/icons/directory.png" alt="Directory">
+                                <h3>Resource Directory</h3>
+                                <p>Modern suppliers, educational resources, and communities for today's metalworkers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Guide Content View -->
+            <div id="guide-view" class="content-view">
+                <div class="content-header">
+                    <button id="back-btn" class="icon-btn">
+                        <img src="assets/icons/back.png" alt="Back">
+                    </button>
+                    <h2 id="chapter-title">Select a Chapter</h2>
+                </div>
+                <div id="chapter-content" class="chapter-content">
+                    <!-- Chapter content will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Resources Directory View -->
+            <div id="directory-view" class="content-view">
+                <div class="content-header">
+                    <h2>Resources Directory</h2>
+                </div>
+                <div id="directory-content" class="directory-content">
+                    <!-- Directory content will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Search View -->
+            <div id="search-view" class="content-view">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search the guide and resources...">
+                    <button id="search-submit">Search</button>
+                </div>
+                <div id="search-results" class="search-results">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+            
+            <!-- Bookmarks View -->
+            <div id="bookmarks-view" class="content-view">
+                <div class="content-header">
+                    <h2>Bookmarks</h2>
+                </div>
+                <div id="bookmarks-list" class="bookmarks-list">
+                    <!-- Bookmarks will be listed here -->
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Load data and app logic -->
+    <script src="../../src/data/guide-content.js"></script>
+    <script src="../../src/data/resources-directory.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
