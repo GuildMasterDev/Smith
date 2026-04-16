@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Syntax-check JS sources
+        run: |
+          set -euo pipefail
+          shopt -s globstar nullglob
+          files=(src/**/*.js scripts/**/*.js *.js)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "no .js files to check"
+            exit 0
+          fi
+          for f in "${files[@]}"; do
+            echo "  checking $f"
+            node --check "$f"
+          done
+
+      - name: Syntax-check web demo
+        run: |
+          node -e '
+            const html = require("fs").readFileSync("web/index.html","utf8");
+            const scripts = [...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+            let ok = true;
+            scripts.forEach((s,i) => {
+              try { new Function(s); console.log("web/index.html inline script "+i+": OK"); }
+              catch(e) { console.log("web/index.html inline script "+i+": ERROR "+e.message); ok = false; }
+            });
+            if (!ok) process.exit(1);
+          '
+          node --check web/sw.js
+          node -e 'JSON.parse(require("fs").readFileSync("web/manifest.json","utf8")); console.log("web/manifest.json: OK")'
+
+      - name: Type-check (if tsconfig exists)
+        run: |
+          if [ -f tsconfig.json ]; then
+            npx tsc --noEmit
+          else
+            echo "no tsconfig.json — skipping type check"
+          fi
