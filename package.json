@@ -1,7 +1,7 @@
 {
   "name": "smith",
   "version": "1.0.0",
-  "description": "",
+  "description": "A comprehensive metallurgical guide and bladesmithing resource",
   "main": "src/main/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,9 +13,15 @@
     "type": "git",
     "url": "git+https://github.com/GuildMasterDev/Smith.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "metallurgy",
+    "bladesmithing",
+    "blacksmithing",
+    "forging",
+    "damascus"
+  ],
+  "author": "GuildMaster Development",
+  "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/GuildMasterDev/Smith/issues"
