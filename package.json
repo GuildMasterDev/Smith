@@ -1,6 +1,6 @@
 {
   "name": "smith",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A comprehensive metallurgical guide and bladesmithing resource",
   "main": "src/main/index.js",
   "scripts": {

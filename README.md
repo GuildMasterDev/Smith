@@ -1,119 +1,120 @@
-# Smith - Metallurgical Guide & Resources
+# Smith — Metallurgical Guide & Resources
 
-A comprehensive Electron application that teaches metallurgy and bladesmithing from the ground up. From finding ore in the mountains to forging Damascus steel, Smith provides both primitive techniques for rebuilding society and modern resources for today's craftspeople.
+A comprehensive guide to metallurgy and bladesmithing, from finding ore in the mountains to forging Damascus steel. Ships as a cross-platform Electron desktop app (macOS / Windows / Linux) and as an installable Progressive Web App.
+
+**Live demo:** [guildmasterdev.github.io/Smith](https://guildmasterdev.github.io/Smith)
 
 ## Features
 
-### 📚 Complete Metallurgical Guide
-Eight detailed chapters covering everything from basic ore identification to advanced metalworking:
-- **Finding Ore** - Geological indicators, mountain formations, and ore identification
-- **Building Kilns** - Clay kilns, stone furnaces, and temperature management
-- **Smelting Basics** - Ore processing, flux materials, and metal extraction
-- **Forging Fundamentals** - Hammer techniques, anvil setup, and heat treating
-- **Blade Making** - Steel selection, grinding, tempering, and handle construction
-- **Tool Creation** - Making your own hammers, tongs, and essential tools
-- **Advanced Techniques** - Damascus steel, pattern welding, and Japanese techniques
-- **Safety & First Aid** - Workshop safety, burn treatment, and emergency procedures
+### The Guide
 
-### 🔧 Modern Resources Directory
-Curated collection of contemporary resources:
-- Material and tool suppliers
-- Educational institutions and workshops
-- Essential books and reading materials
-- Online communities and forums
-- Equipment manufacturers
-- Professional workshops and schools
-- Safety equipment and information
+Eight chapters covering the full arc of the craft:
 
-### 💻 Application Features
-- Clean, dark-themed interface
-- Sidebar navigation with chapter icons
-- Full-text search across all content
-- Bookmark system for saving important sections
-- Keyboard shortcuts for efficient navigation
-- Print and PDF export capabilities
-- Cross-platform support (Windows, macOS, Linux)
+1. **Finding Ore** — geological indicators, mountain formations, ore identification
+2. **Building Kilns** — clay kilns, stone furnaces, bellows, fuel, temperature
+3. **Smelting Basics** — ore prep, flux, slag, refining, environmental responsibility
+4. **Forging Fundamentals** — forge setup, heat colors, drawing / upsetting / bending / welding, heat treatment
+5. **Blade Making** — steel selection, forging, grinding, heat treatment, handles, sharpening
+6. **Tool Creation** — hammers, tongs, chisels, hardy tools, files, measuring tools
+7. **Advanced Techniques** — Damascus / pattern welding, Japanese sword methods, Mokume Gane, inlay, finishes
+8. **Safety & First Aid** — PPE, fire, burns, fume fever, chemical hazards, emergency procedures
 
-## Installation
+### Modern Resources Directory
+
+Curated contemporary resources: material and tool suppliers, educational institutions and workshops, essential books, online communities, equipment manufacturers, and safety information.
+
+### Application features
+
+- Dark, forge-themed interface with serif prose and a focused reading column
+- Sidebar navigation with chapter icons and numbering
+- Full-text client-side search with highlighted snippets
+- `localStorage` bookmarks
+- Prev / next chapter navigation and deep-linkable hash routes
+- Keyboard shortcuts (`/` search, `g` home, `b` bookmark, `←` / `→` chapter nav)
+- Print and PDF export (desktop), print-optimized CSS (web)
+
+## Web Demo
+
+The web version lives in [`web/`](./web/) as a single self-contained `index.html` with all content embedded inline — no fetch, no build step. It runs identically on any static host.
+
+- Live: [guildmasterdev.github.io/Smith](https://guildmasterdev.github.io/Smith)
+- Serve locally: `python3 -m http.server --directory web 8000` then open <http://localhost:8000>
+
+## PWA
+
+Smith is installable as a Progressive Web App:
+
+- `web/manifest.json` — standalone display, `#1a1a2e` theme, maskable icons at 192 and 512
+- `web/sw.js` — cache-first service worker (`smith-v1`) with stale-while-revalidate
+- Works fully offline once the first visit has cached the shell
+
+Install from the browser's "Install app" / "Add to Home Screen" action.
+
+## Desktop App
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-- ImageMagick (for icon generation)
+
+- Node.js 20+
+- npm
 
 ### Setup
+
 ```bash
-# Clone the repository
 git clone https://github.com/GuildMasterDev/Smith.git
 cd Smith
-
-# Install dependencies
 npm install
-
-# Generate icons (requires ImageMagick)
-./scripts/generate-icons.sh
-
-# Start the application
 npm start
 ```
 
-## Development
+### Building for Distribution
 
-### Project Structure
+```bash
+npm run make                      # current platform
+npm run make -- --platform=darwin # macOS
+npm run make -- --platform=win32  # Windows
+npm run make -- --platform=linux  # Linux
+```
+
+## Project Structure
+
 ```
 Smith/
 ├── src/
-│   ├── main/           # Electron main process
-│   ├── renderer/       # Frontend HTML/CSS/JS
-│   └── data/          # Guide content and resources
-├── scripts/           # Build and utility scripts
-├── build/            # Generated icons and build artifacts
-└── forge.config.js   # Electron Forge configuration
+│   ├── main/        # Electron main process
+│   ├── renderer/    # Desktop UI (HTML/CSS/JS)
+│   └── data/        # Shared guide and resources content
+├── web/             # Self-contained web/PWA build
+│   ├── index.html
+│   ├── manifest.json
+│   ├── sw.js
+│   └── icons/
+├── scripts/         # Build and utility scripts
+├── .github/workflows/
+│   ├── ci.yml
+│   └── deploy-web.yml
+├── forge.config.js  # Electron Forge configuration
+└── package.json
 ```
 
-### Available Scripts
-- `npm start` - Start the application in development mode
-- `npm run package` - Package the application for the current platform
-- `npm run make` - Create distributable packages for all platforms
+## Technology
 
-### Building for Distribution
-
-#### Windows
-```bash
-npm run make -- --platform=win32
-```
-
-#### macOS
-```bash
-npm run make -- --platform=darwin
-```
-
-#### Linux
-```bash
-npm run make -- --platform=linux
-```
-
-## Technologies Used
-- **Electron** - Cross-platform desktop application framework
-- **Vanilla JavaScript** - No framework dependencies for simplicity
-- **Electron Forge** - Build and packaging toolchain
-- **ImageMagick** - Programmatic icon generation
+- **Electron 41** — cross-platform desktop runtime
+- **Electron Forge 7** — packaging toolchain
+- **Vanilla JavaScript** — no framework, no build step required for the web demo
+- **GitHub Pages + GitHub Actions** — web deployment pipeline
 
 ## Contributing
-Contributions are welcome! Please feel free to submit pull requests or open issues for:
-- Additional guide content
-- New resource recommendations
-- UI/UX improvements
-- Bug fixes
+
+Pull requests welcome for additional content, resource recommendations, UI improvements, and bug fixes.
 
 ## License
-MIT License - See LICENSE file for details
+
+MIT — see [LICENSE](./LICENSE).
 
 ## Acknowledgments
-This application was created as a comprehensive resource for those interested in metallurgy and bladesmithing, whether for practical skills, historical interest, or emergency preparedness. The content combines traditional techniques passed down through generations with modern best practices and safety standards.
 
-## Support
-For issues, questions, or suggestions, please open an issue on GitHub.
+Built as a comprehensive resource for metallurgy and bladesmithing — whether for practical skill, historical interest, or emergency preparedness. Combines traditional techniques with modern best practices and safety standards.
 
 ---
-*Built with the vision of preserving ancient crafts for future generations.*
+
+*Preserving ancient crafts for future generations.*
