@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0f0f1a"/>
+    </linearGradient>
+    <linearGradient id="anvil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff8a2a"/>
+      <stop offset="100%" stop-color="#c45a08"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#e8720c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e8720c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="320" r="180" fill="url(#glow)"/>
+  <g fill="url(#anvil)" stroke="#1a1a2e" stroke-width="2" stroke-linejoin="round">
+    <!-- Anvil: horn, body, base -->
+    <path d="M 96 260
+             L 96 232
+             Q 96 220 108 218
+             L 216 202
+             Q 236 200 244 212
+             L 304 218
+             Q 360 222 396 232
+             Q 420 238 420 252
+             L 420 264
+             Q 420 270 414 272
+             L 380 278
+             L 380 296
+             Q 380 304 372 306
+             L 140 306
+             Q 132 304 132 296
+             L 132 278
+             L 100 272
+             Q 94 270 96 264 Z"/>
+    <!-- Waist -->
+    <path d="M 180 306 L 180 340 L 332 340 L 332 306 Z"/>
+    <!-- Base -->
+    <path d="M 150 340
+             L 150 400
+             Q 150 416 168 418
+             L 344 418
+             Q 362 416 362 400
+             L 362 340 Z"/>
+  </g>
+  <!-- Hammer rest/spark -->
+  <circle cx="256" cy="110" r="10" fill="#ff8a2a"/>
+  <path d="M 246 110 L 266 110 M 256 100 L 256 120 M 248 102 L 264 118 M 264 102 L 248 118" stroke="#ff8a2a" stroke-width="3" stroke-linecap="round"/>
+</svg>
